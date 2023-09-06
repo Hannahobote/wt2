@@ -1,6 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
-import myClient from './elasticsearch/client.js'
+import client from './elasticsearch/client.js'
 
 dotenv.config()
 const app = express()
