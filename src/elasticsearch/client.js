@@ -48,7 +48,7 @@ await client.search({
   })
   .catch(err => console.log(err.message))
 elasticResult = elasticResult.flat()
-console.log(elasticResult)
+
 
 
 client.ping()
