@@ -14,16 +14,12 @@ app.use(logger('dev'))
 
 app.use(express.json())
 
-
-const corsOptions = {
-  origin: "http://localhost:3000/",
-}
-
-app.use(cors(corsOptions));
+app.use(cors({ origin: 'http://localhost:3000' }))
 
 app.get('/', function (req, res) {
   res.send(elasticResult)
 })
+
 
 app.listen(process.env.PORT, () => {
     console.log(`Server running at http://localhost:${process.env.PORT}`)
