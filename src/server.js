@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import {client, elasticResult} from './elasticsearch/client.js'
 import logger from 'morgan'
 import helmet from 'helmet'
-import { CorsOptions } from 'cors'
+import cors from 'cors'
 
 dotenv.config()
 const app = express()
