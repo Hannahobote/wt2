@@ -1,10 +1,25 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import {client, elasticResult} from './elasticsearch/client.js'
+import logger from 'morgan'
+import helmet from 'helmet'
+import { CorsOptions } from 'cors'
 
 dotenv.config()
 const app = express()
 
+app.use(helmet());
+
+app.use(logger('dev'))
+
+app.use(express.json())
+
+
+const corsOptions = {
+  origin: "http://localhost:3000/",
+}
+
+app.use(cors(corsOptions));
 
 app.get('/', function (req, res) {
   res.send(elasticResult)
