@@ -32,7 +32,7 @@ await client.search({
           "top_matching_docs": {
             "top_hits": {
               "size": 10,
-              "_source": ["English name", "Japanese name", "Score"]
+              "_source": ["English name", "Japanese name", "Score", "Plan to Watch"]
             }
           }
         }
