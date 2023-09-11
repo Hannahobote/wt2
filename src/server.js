@@ -15,7 +15,7 @@ app.use(logger('dev'))
 
 app.use(express.json())
 
-app.use(cors({ origin: 'http://localhost:3000' }))
+app.use(cors({ origin: ['http://localhost:3000', 'https://wt2-viz.vercel.app/'] }))
 
 app.get('/', function (req, res) {
   res.send(elasticResult)
