@@ -16,13 +16,12 @@ app.use(logger('dev'))
 app.use(express.json())
 
 /*const corsOptions = {
-  origin: 'http://localhost:3000'
+  origin: process.env.CORS_URL
 }
-app.use(cors(corsOptions))*/
+app.use((corsOptions))*/
 
 app.get('/', function (req, res) {
-  console.log(process.env.CORS_URL)
-  res.set('Access-Control-Allow-Origin', process.env.CORS_URL);
+  res.header('Access-Control-Allow-Credentials', true)
   res.send(elasticResult)
 })
 
