@@ -16,7 +16,7 @@ app.use(logger('dev'))
 app.use(express.json())
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'https://wt2-viz.vercel.app/', 'https://wt2-viz-git-main-hannahobote.vercel.app/']
+  origin: 'https://wt2-viz.vercel.app/'
 }
 app.use(cors(corsOptions))
 
