@@ -1,6 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
-import {client, elasticResult} from './elasticsearch/client.js'
+import {elasticResult} from './elasticsearch/client.js'
 import logger from 'morgan'
 import helmet from 'helmet'
 import cors from 'cors'
@@ -15,7 +15,10 @@ app.use(logger('dev'))
 
 app.use(express.json())
 
-app.use(cors({ origin: process.env.CORS_URL }))
+const corsOptions = {
+  origin: ['http://localhost:3000', 'https://wt2-viz.vercel.app/', 'https://wt2-viz-git-main-hannahobote.vercel.app/']
+}
+app.use(cors(corsOptions))
 
 app.get('/', function (req, res) {
   res.send(elasticResult)
