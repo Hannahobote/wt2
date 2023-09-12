@@ -15,12 +15,14 @@ app.use(logger('dev'))
 
 app.use(express.json())
 
-const corsOptions = {
-  origin: 'https://wt2-viz.vercel.app/'
+/*const corsOptions = {
+  origin: 'http://localhost:3000'
 }
-app.use(cors(corsOptions))
+app.use(cors(corsOptions))*/
 
 app.get('/', function (req, res) {
+  console.log(process.env.CORS_URL)
+  res.set('Access-Control-Allow-Origin', process.env.CORS_URL);
   res.send(elasticResult)
 })
 
