@@ -15,13 +15,10 @@ app.use(logger('dev'))
 
 app.use(express.json())
 
-/*const corsOptions = {
-  origin: process.env.CORS_URL
-}
-app.use((corsOptions))*/
+
+app.use(cors())
 
 app.get('/', function (req, res) {
-  res.header('Access-Control-Allow-Credentials', true)
   res.send(elasticResult)
 })
 
