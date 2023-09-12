@@ -22,7 +22,7 @@ app.use(express.json())
 // enable cors options
 // app.use(cors())
 
-var whitelist = ['http://localhost:3000', 'https://wt2-viz.vercel.app']
+/*var whitelist = ['http://localhost:3000', 'https://wt2-viz.vercel.app']
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
@@ -31,12 +31,13 @@ var corsOptions = {
       callback(new Error('Not allowed by CORS'))
     }
   }
-}
+}*/
  
 
 
 // Main route to get elastic results 
-app.get('/', cors(corsOptions) ,function (req, res) {
+app.options('/', cors()) // enable pre-flight request for DELETE request
+app.get('/', cors(), function (req, res) {
   res.send(elasticResult)
 })
 
