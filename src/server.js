@@ -20,10 +20,23 @@ app.use(logger('dev'))
 app.use(express.json())
 
 // enable cors options
-app.use(cors())
+// app.use(cors())
+
+var whitelist = ['http://localhost:3000', 'https://wt2-viz.vercel.app']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+ 
+
 
 // Main route to get elastic results 
-app.get('/', function (req, res) {
+app.get('/', cors(corsOptions) ,function (req, res) {
   res.send(elasticResult)
 })
 
